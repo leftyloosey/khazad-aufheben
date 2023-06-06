@@ -4,12 +4,15 @@ import dotenv from 'dotenv'
 dotenv.config()
 import connectDB from './config/db.js'
 import { notFound, errorHandler } from './middleware/errorMiddleware.js'
+import cors from 'cors'
 
 const port = process.env.PORT || 5000
 
 connectDB()
 
 const app = express()
+// app.use(cors)
+app.use(cors({ origin: 'http://localhost:3000' }))
 
 app.get('/', (req, res) => {
     res.send('API running...')
