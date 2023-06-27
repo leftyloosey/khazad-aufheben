@@ -100,7 +100,7 @@ return (
                 type='button'
                 className='btn-block'
                 disabled={cartItems.length === 0}
-                // onClick={checkoutHandler}
+                onClick={checkoutHandler}
               >
                 Proceed To Checkout
               </Button>
