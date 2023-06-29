@@ -48,6 +48,6 @@ export const {
     removeFromCart,
     saveShippingAddress,
     savePaymentMethod,
+    clearCartItems,
 } = cartSlice.actions
-console.log(cartSlice.reducer)
 export default cartSlice.reducer
