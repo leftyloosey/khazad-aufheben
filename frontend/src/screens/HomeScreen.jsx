@@ -4,8 +4,10 @@ import Loader from '../components/Loader'
 import Product from '../components/Product'
 import Message from '../components/Message'
 
+
 const HomeScreen = () => {
   const { data: products, isLoading, error } = useGetProductsQuery()
+
 
   return (
    <>

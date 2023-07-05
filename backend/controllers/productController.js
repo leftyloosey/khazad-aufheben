@@ -6,6 +6,7 @@ import Product from '../models/productModel.js'
 // @access Public
 
 const getProducts = asyncHandler(async (req, res) => {
+    console.log('this shows up', req.cookies)
     const products = await Product.find({})
     res.json(products)
 })
