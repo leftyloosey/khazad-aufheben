@@ -1,12 +1,22 @@
 import {Link, useParams} from 'react-router-dom'
+import { useEffect } from 'react'
 import {Row, Col, ListGroup, Image, Form, Button, Card} from 'react-bootstrap'
+import { useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
-import { useGetOrderDetailsQuery } from '../slices/ordersApiSlice'
+import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js'
+import { useGetOrderDetailsQuery, usePayOrderMutation, useGetPaypalClientIdQuery } from '../slices/ordersApiSlice'
+import { toast } from 'react-toastify'
 
 const OrderScreen = () => {
     const { id: orderId } = useParams()
     const { data: order, refetch, isLoading, error } = useGetOrderDetailsQuery(orderId)
+
+    const [payOrder, { isLoading: loadingPay }] = usePayOrderMutation()
+
+    const [{ isPending }, paypalDispatch] = usePayPalScriptReducer()
+
+    const { userInfo } = useSelector((state) => state.auth)
 
   return isLoading ? <Loader /> : error ? <Message variant='danger' />
   : (
