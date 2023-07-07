@@ -32,7 +32,6 @@ app.use(express.urlencoded({ extended: true }))
 app.get('/', (req, res) => {
     res.send('API running...')
 })
-// app.use(cookieParser())
 
 app.use('/api/products', productRoutes)
 app.use('/api/user', userRoutes)
@@ -44,6 +43,5 @@ app.get('/api/config/paypal', (req, res) =>
 
 app.use(notFound)
 app.use(errorHandler)
-// app.use(cookieParser())
 
 app.listen(port, () => console.log(`Server running on port ${port}`))

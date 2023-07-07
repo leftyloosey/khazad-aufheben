@@ -57,11 +57,26 @@ const OrderScreen = () => {
    }
    async function onApproveTest() {
     await payOrder({orderId, details: { payer: {} }})
+    console.log(payOrder({orderId, details: { payer: {} }}))
     refetch()
     toast.success('Payment Successful')
    }
-   function onError() {}
-   function createOrder() {}
+   function onError(err) {
+    toast.error.message()
+   }
+   function createOrder(data, actions) {
+    return actions.order.create({
+        purchase_units: [
+            {
+                amount: {
+                    value: order.totalPrice
+                }
+            }
+        ]
+    }).then((orderId) => {
+        return orderId
+    })
+   }
 
 
   return isLoading ? <Loader /> : error ? <Message variant='danger' />
