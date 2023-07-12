@@ -18,9 +18,25 @@ const ProfileScreen = () => {
 
     const { userInfo } = useSelector((state) => state.auth)
 
-    const submitHandler = (e) => {
+    const [updateProfile, { isLoading: loadingUpdateProfile }] = useProfileMutation()
+
+    const submitHandler = async (e) => {
         e.preventDefault()
-        console.log('submitHandler')
+        if (password !== confirmPassword) {
+            toast.error('Passwords do not match')
+        } else {
+            try {
+                const res = await updateProfile({ 
+                    _id: userInfo._id, 
+                    name, 
+                    email, 
+                    password }).unwrap()
+                    dispatch(setCredentials(res))
+                    toast.success('Profile Updated Successfully')
+            } catch (err) {
+                toast.error(err?.data?.message || err?.error )
+            }
+        }
     }
 
     useEffect(() => {
@@ -77,6 +93,7 @@ const ProfileScreen = () => {
             <Button type='submit' variant='primary' className='my-2'>
                 Update
             </Button>
+            { loadingUpdateProfile && <Loader /> }
 
         </Form>
     </Col>
