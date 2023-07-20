@@ -1,6 +1,6 @@
 import { LinkContainer } from 'react-router-bootstrap'
 import { Table, Button, Row, Col } from 'react-bootstrap'
-import { FaTimes, FaEdit, FaTrash } from 'react-icons/fa'
+import { FaPlus, FaEdit, FaTrash } from 'react-icons/fa'
 import { toast } from 'react-toastify'
 import Message from '../../components/Message'
 import Loader from '../../components/Loader'
@@ -31,7 +31,7 @@ const ProductListScreen = () => {
             </Col>
             <Col className='text-end'>
               <Button className='my-3' onClick={createProductHandler}>
-                <FaTimes /> Create Product
+                <FaPlus /> Create Product
               </Button>
             </Col>
           </Row>
