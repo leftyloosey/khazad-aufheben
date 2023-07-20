@@ -31,10 +31,11 @@ const getProductById = asyncHandler(async (req, res) => {
 // @access Private, Admin
 
 const createProduct = asyncHandler(async (req, res) => {
+    console.log('REQ USER', req.user)
     const product = new Product({
         name: 'Sample name',
         price: 0,
-        user: req.user_id,
+        user: req.user._id,
         image: '/images/sample.jpg',
         brand: 'Sample brand',
         category: 'Sample category',
