@@ -28,7 +28,7 @@ import ProfileScreen from './screens/ProfileScreen'
 import AdminRoute from './components/AdminRoute'
 import OrderListScreen from './screens/admin/OrderListScreen'
 import ProductListScreen from './screens/admin/ProductListScreen'
-import ProductEditScreen from './screens/admin/ProductListScreen'
+import ProductEditScreen from './screens/admin/ProductEditScreen'
 
 const router = createBrowserRouter(
     createRoutesFromElements(
