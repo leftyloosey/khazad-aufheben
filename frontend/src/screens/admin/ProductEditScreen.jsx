@@ -9,6 +9,16 @@ import { useUpdateProductMutation, useGetProductDetailsQuery } from '../../slice
 
 const ProductEditScreen = () => {
   const { id: productId } = useParams()
+
+  const [name, setName] = useState('')
+  const [price, setPrice] = useState(0)
+  const [image, setImage] = useState('')
+  const [brand, setBrand] = useState('')
+  const [category, setCategory] = useState('')
+  const [countInStock, setCountInStock] = useState(0)
+  const [description, setDescription] = useState('')
+
+  const { data: product, isLoading, refetch, error } = useGetProductDetailsQuery(productId)
   
   return (
     <div>
