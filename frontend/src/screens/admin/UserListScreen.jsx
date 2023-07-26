@@ -11,6 +11,8 @@ const UserListScreen = () => {
 
   const [deleteUser, {isLoading: loadingDelete}] = useDeleteUserMutation()
 
+  console.log('USER LIST USERS', users)
+
   const deleteHandler = async (id) => {
     if (window.confirm('Are you sure?')) {
         try {
@@ -37,6 +39,7 @@ const UserListScreen = () => {
           <thead>
             <tr>
               <th>ID</th>
+              <th>NAME</th>
               <th>EMAIL</th>
               <th>ADMIN</th>
               <th></th>
