@@ -41,8 +41,8 @@ const ProductScreen = () => {
             productId,
             rating,
             comment,
-          }).unwrap();
-          refetch();
+          }).unwrap()
+          refetch()
           toast.success('Review created successfully')
         } catch (err) {
           toast.error(err?.data?.message || err.error)
