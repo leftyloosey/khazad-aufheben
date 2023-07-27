@@ -8,7 +8,8 @@ import Paginate from '../components/Paginate'
 
 
 const HomeScreen = () => {
-  const pageNumber = useParams()
+  const pageNumbe = useParams()
+  const {pageNumber} = pageNumbe
   const { data, isLoading, error } = useGetProductsQuery({ pageNumber })
 
   return (

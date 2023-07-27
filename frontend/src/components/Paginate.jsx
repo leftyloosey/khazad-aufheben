@@ -2,7 +2,9 @@ import { Pagination } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 
 // const Paginate = ({ pages, page, isAdmin = false, keyword = '' }) => {
-const Paginate = ({ pages, page, isAdmin = false }) => {
+const Paginate = ({ pages, page, isAdmin}) => {
+    console.log(page)
+    console.log(pages)
     return (
     pages > 1 && (
         <Pagination>
@@ -15,7 +17,7 @@ const Paginate = ({ pages, page, isAdmin = false }) => {
                 : `/admin/productlist/${x + 1}`
             }
           >
-            <Pagination.Item active={x + 1 === page}>{x + 1}</Pagination.Item>
+            <Pagination.Item active={x + 1 === page}>jygi{x + 1}</Pagination.Item>
           </LinkContainer>
         ))}
       </Pagination>
