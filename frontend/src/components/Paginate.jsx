@@ -17,7 +17,7 @@ const Paginate = ({ pages, page, isAdmin}) => {
                 : `/admin/productlist/${x + 1}`
             }
           >
-            <Pagination.Item active={x + 1 === page}>jygi{x + 1}</Pagination.Item>
+            <Pagination.Item active={x + 1 === page}>{x + 1}</Pagination.Item>
           </LinkContainer>
         ))}
       </Pagination>
