@@ -3,9 +3,10 @@ import { Table, Button, Row, Col } from 'react-bootstrap'
 import { FaPlus, FaEdit, FaTrash } from 'react-icons/fa'
 import { toast } from 'react-toastify'
 import { useParams } from 'react-router-dom'
+import { useGetProductsQuery, useCreateProductMutation, useDeleteProductMutation } from '../../slices/productsApiSlice'
+import Paginate from '../../components/Paginate'
 import Message from '../../components/Message'
 import Loader from '../../components/Loader'
-import { useGetProductsQuery, useCreateProductMutation, useDeleteProductMutation } from '../../slices/productsApiSlice'
 
 const ProductListScreen = () => {
     const { pageNumber } = useParams()
@@ -95,7 +96,7 @@ const ProductListScreen = () => {
                   ))}
                 </tbody>
               </Table>
-              {/* <Paginate pages={data.pages} page={data.page} isAdmin={true} /> */}
+              <Paginate pages={data.pages} page={data.page} isAdmin={true} />
             </>
           )}
         </>
