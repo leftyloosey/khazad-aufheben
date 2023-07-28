@@ -5,39 +5,39 @@ import User from '../models/userModel.js'
 // protect
 
 const protect = asyncHandler(async (req, res, next) => {
-    let token
+  let token
 
-    // read JWT from cookie
-    token = req.cookies.jwt
-    console.log('TOKEN', token)
-    if (token) {
-        try {
-            const decoded = jwt.verify(token, process.env.JWT_SECRET)
-            console.log(decoded)
-            req.user = await User.findById(decoded.userId).select('-password')
-            console.log(req.user)
-            next()
-        } catch (error) {
-            console.log(error)
-            res.status(401)
-            throw new Error('Token failed.')
-        }
-    } else {
-        res.status(404)
-        throw new Error('Not authorized, no token, mowgly mpwoyy')
+  // read JWT from cookie
+  token = req.cookies.jwt
+  console.log('TOKEN', token)
+  if (token) {
+    try {
+      const decoded = jwt.verify(token, process.env.JWT_SECRET)
+      console.log(decoded)
+      req.user = await User.findById(decoded.userId).select('-password')
+      console.log(req.user)
+      next()
+    } catch (error) {
+      console.log(error)
+      res.status(401)
+      throw new Error('Token failed.')
     }
+  } else {
+    res.status(404)
+    throw new Error('Not authorized, no token, mowgly mpwoyy')
+  }
 })
 
 // admin
 
 const admin = (req, res, next) => {
-    // console.log(req.user)
-    if (req.user && req.user.isAdmin) {
-        next()
-    } else {
-        res.status(401)
-        throw new Error('Not authorized as admin.')
-    }
+  // console.log(req.user)
+  if (req.user && req.user.isAdmin) {
+    next()
+  } else {
+    res.status(401)
+    throw new Error('Not authorized as admin.')
+  }
 }
 
 export { protect, admin }
