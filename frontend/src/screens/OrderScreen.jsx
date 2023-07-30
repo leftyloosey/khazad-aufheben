@@ -1,6 +1,6 @@
 import {Link, useParams} from 'react-router-dom'
 import { useEffect } from 'react'
-import {Row, Col, ListGroup, Image, Form, Button, Card} from 'react-bootstrap'
+import {Row, Col, ListGroup, Image, Button, Card} from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
@@ -61,12 +61,12 @@ const OrderScreen = () => {
         }
     })
    }
-   async function onApproveTest() {
-    await payOrder({orderId, details: { payer: {} }})
-    console.log(payOrder({orderId, details: { payer: {} }}))
-    refetch()
-    toast.success('Payment Successful')
-   }
+//    async function onApproveTest() {
+//     await payOrder({orderId, details: { payer: {} }})
+//     console.log(payOrder({orderId, details: { payer: {} }}))
+//     refetch()
+//     toast.success('Payment Successful')
+//    }
    function onError(err) {
     toast.error.message()
    }
@@ -84,9 +84,9 @@ const OrderScreen = () => {
     })
    }
    const deliverHandler = async () => {
-    await deliverOrder(orderId);
-    refetch();
-  };
+    await deliverOrder(orderId)
+    refetch()
+  }
 
   return isLoading ? <Loader /> : error ? <Message variant='danger' />
   : (
