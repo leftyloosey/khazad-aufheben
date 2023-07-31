@@ -5,13 +5,17 @@ import userRoutes from './routes/userRoutes.js'
 import orderRoutes from './routes/orderRoutes.js'
 import uploadRoutes from './routes/uploadRoutes.js'
 import dotenv from 'dotenv'
-dotenv.config()
+// dotenv.config()
 import cookieParser from 'cookie-parser'
 import connectDB from './config/db.js'
 import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 // import cors from 'cors'
 
 const port = process.env.PORT || 5000
+console.log(dotenv)
+const result = dotenv.config()
+console.log(result)
+console.log(result.error)
 
 connectDB()
 
