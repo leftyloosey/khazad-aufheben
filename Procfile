@@ -1,1 +1,1 @@
-web: npm start && npm run hk 
+web: npm run hk && npm start
