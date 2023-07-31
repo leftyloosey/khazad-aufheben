@@ -1,1 +1,1 @@
-web: npm run hk && npm start
+web: npm start --prefix frontend && npm start
