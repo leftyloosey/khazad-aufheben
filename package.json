@@ -6,12 +6,10 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cd frontend && npm start",
-    "server": "node -r dotenv/config backend/server.js",
+    "start": "node -r dotenv/config server.js",
     "dev": "concurrently \"npm run server\" \"npm run client \"",
     "data:import": "node backend/seeder.js",
     "data:destroy": "node backend/seeder.js -d",
-    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
     "hk": "cd frontend && npm start"
   },
   "author": "David Hardin",
