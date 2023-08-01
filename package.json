@@ -6,9 +6,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cd frontend && npm start",
+    "start": "node -r dotenv/config backend/server.js",
     "server": "node -r dotenv/config backend/server.js",
-    "client": "node -r dotenv/config backend/server.js",
     "dev": "concurrently \"npm run server\" \"npm run client \"",
     "data:import": "node backend/seeder.js",
     "data:destroy": "node backend/seeder.js -d",
