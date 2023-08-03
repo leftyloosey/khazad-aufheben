@@ -23,9 +23,14 @@ app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.get('/', (req, res) => {
-  res.send('API running...')
-})
+// app.get('/', (req, res) => {
+//   res.send('API running...')
+// })
+const __dirname = path.resolve() // set __dirname to current directory
+
+app.get('*', (req, res) =>
+  res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
+)
 
 app.use('/api/products', productRoutes)
 app.use('/api/user', userRoutes)
@@ -36,7 +41,6 @@ app.get('/api/config/paypal', (req, res) =>
   res.send({ clientId: process.env.PAYPAL_CLIENT_ID })
 )
 
-const __dirname = path.resolve() // set __dirname to current directory
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
 
 // if (process.env.NODE_ENV === 'production') {
