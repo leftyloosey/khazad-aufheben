@@ -12,10 +12,6 @@ import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 // import cors from 'cors'
 
 const port = process.env.PORT || 5000
-// console.log(dotenv)
-// const result = dotenv.config()
-// console.log(result)
-// console.log(result.error)
 
 connectDB()
 
@@ -57,14 +53,5 @@ if (process.env.NODE_ENV === 'production') {
 
 app.use(notFound)
 app.use(errorHandler)
-
-// app.use(express.static(path.join(__dirname, '../client/build')));
-app.use(express.static('public'))
-// app.use(express.static('client-app/build'));
-
-//
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
-})
 
 app.listen(port, () => console.log(`Server running on port ${port}`))
