@@ -58,4 +58,13 @@ if (process.env.NODE_ENV === 'production') {
 app.use(notFound)
 app.use(errorHandler)
 
+// app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(express.static('public'))
+// app.use(express.static('client-app/build'));
+
+//
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
+})
+
 app.listen(port, () => console.log(`Server running on port ${port}`))
