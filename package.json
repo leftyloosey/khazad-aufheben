@@ -12,7 +12,8 @@
     "data:import": "node backend/seeder",
     "data:destroy": "node backend/seeder -d",
     "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
-    "heroku-postbuild": "npm start --prefix frontend"
+    "hk": "cd frontend && npm start"
+
   },
   "author": "David Hardin",
   "license": "MIT",
