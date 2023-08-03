@@ -23,13 +23,13 @@ app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-const __dirname = path.resolve() // set __dirname to current directory
+// const __dirname = path.resolve() // set __dirname to current directory
 
-app.use(express.static('frontend/build'))
+// app.use(express.static('frontend/build'))
 
-app.get('*', (req, res) =>
-  res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
-)
+// app.get('*', (req, res) =>
+//   res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
+// )
 // app.get('/', (req, res) => {
 //   res.send('API running...')
 // })
