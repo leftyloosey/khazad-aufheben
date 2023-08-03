@@ -11,7 +11,8 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "data:import": "node backend/seeder",
     "data:destroy": "node backend/seeder -d",
-    "hk": "npm start --prefix frontend"
+    "hk": "npm start --prefix frontend",
+    "heroku-cleanup": "npm start --prefix frontend"
 
   },
   "author": "David Hardin",
